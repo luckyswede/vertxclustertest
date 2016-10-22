@@ -1,14 +1,14 @@
-* [new terminal]
+[new terminal]
 * cd service
 * mvn clean package
 * ./run.sh
 
-* [new terminal]
+[new terminal]
 * cd proxy
 * mvn clean package
 * ./run.sh
 
-* [new terminal]
+[new terminal]
 * ab -n 5000 -c 5 http://localhost:8080/
 
 
