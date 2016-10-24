@@ -11,6 +11,7 @@ public class Service extends AbstractVerticle {
   public void start(Future<Void> fut)
   {
       consumer = vertx.eventBus().consumer("ping", message -> message.reply("pong"));
+      fut.complete();
   }
 
   @Override
@@ -19,6 +20,6 @@ public class Service extends AbstractVerticle {
           fut.complete();
           return;
       }
-      consumer.unregister(fut.completer());
+      vertx.setTimer(1000, l -> consumer.unregister(fut.completer()));
   }
 }
